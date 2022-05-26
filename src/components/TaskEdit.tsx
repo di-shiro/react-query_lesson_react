@@ -4,7 +4,7 @@ import { setEditedTask, selectTask } from '../slices/todoSlice'
 import { useQueryTags } from '../hooks/useQueryTags'
 import { useMutateTask } from '../hooks/useMutateTask'
 
-export const TaskEdit: FC = () => {
+const TaskEdit: FC = () => {
   const editedTask = useAppSelector(selectTask)
   const dispatch = useAppDispatch()
   const { status, data } = useQueryTags()
@@ -67,3 +67,5 @@ export const TaskEdit: FC = () => {
     </div>
   )
 }
+
+export const TaskEditMemo = memo(TaskEdit)

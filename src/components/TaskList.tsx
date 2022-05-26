@@ -1,8 +1,8 @@
 import { FC, memo } from 'react'
 import { useQueryTasks } from '../hooks/useQueryTasks'
-import { TaskItem } from './TaskItem'
+import { TaskItemMemo } from './TaskItem'
 
-export const TaskList: FC = () => {
+const TaskList: FC = () => {
   const { status, data } = useQueryTasks()
   console.log('rendered TaskList')
   if (status === 'loading') return <div>{'Loading...'}</div>
@@ -13,10 +13,12 @@ export const TaskList: FC = () => {
       {data?.map((task) => (
         <div key={task.id}>
           <ul>
-            <TaskItem task={task} />
+            <TaskItemMemo task={task} />
           </ul>
         </div>
       ))}
     </div>
   )
 }
+
+export const TaskListMemo = memo(TaskList)
