@@ -54,7 +54,7 @@ export const useMutateTask = () => {
       // サーバ側でのdelete処理成功のresponseを受けたら、react-queryのキャッシュを更新する。
       onSuccess: (res, variables) => {
         // キャッシュから既存データを取得
-        const previousTodos = queryClient.getQueryData<Task[]>('task')
+        const previousTodos = queryClient.getQueryData<Task[]>('tasks')
         if (previousTodos) {
           queryClient.setQueryData<Task[]>(
             'tasks',

@@ -13,5 +13,7 @@ export const useQueryTasks = () => {
     queryKey: 'tasks',
     queryFn: getTasks,
     staleTime: 0,
+    // cacheTime: 10000,  // defaultは5分
+    // refetchInterval: 5000,
   })
 }
